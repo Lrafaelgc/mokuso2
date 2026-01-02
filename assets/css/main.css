@@ -1,0 +1,250 @@
+/* --------------------
+   Estilos Generales
+   -------------------- */
+:root {
+    --primary-color: #3f51b5; /* Azul índigo */
+    --secondary-color: #607d8b; /* Gris azulado */
+    --background-light: #f4f7f6;
+    --text-color: #333;
+    --border-color: #e0e0e0;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* --------------------
+   Layout de la Aplicación
+   -------------------- */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-content-wrapper {
+    flex-grow: 1;
+    padding: 2.5rem 2rem;
+    overflow-x: hidden;
+    margin-left: 250px; /* Espacio para el sidebar */
+}
+
+/* --------------------
+   Barra Lateral (Sidebar)
+   -------------------- */
+.sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    padding: 2rem 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header span {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #444;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 0.75rem;
+}
+
+.sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav .nav-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+.sidebar-nav .nav-link:hover,
+.sidebar-nav .nav-link.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.sidebar-nav .nav-link:hover svg,
+.sidebar-nav .nav-link.active svg {
+    stroke: #fff;
+}
+
+/* --------------------
+   Contenido Principal
+   -------------------- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+}
+
+.header-with-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.header-with-buttons h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.action-buttons .btn {
+    margin-left: 10px;
+}
+
+/* --------------------
+   Estilos de Botones
+   -------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: 1px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #3344a2;
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: #f0f0f0;
+}
+
+/* --------------------
+   Estilos de Tablas y Formularios
+   -------------------- */
+.table-container {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+/* Estilos de DataTables y Bootstrap 5 */
+.dataTables_wrapper .dataTables_filter input {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+}
+
+.dataTables_wrapper .dataTables_length select {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.dataTables_wrapper .pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Estilos de formularios */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(63, 81, 181, 0.25);
+    outline: none;
+}
+
+/* --------------------
+   Responsive Design
+   -------------------- */
+@media (max-width: 768px) {
+    .app-layout {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        position: relative;
+        box-shadow: none;
+    }
+    .main-content-wrapper {
+        margin-left: 0;
+        padding: 1rem;
+    }
+    .header-with-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .action-buttons .btn {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+}

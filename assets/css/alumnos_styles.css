@@ -1,0 +1,244 @@
+/* ================================================= */
+/* === Estilos Generales para la Sección Alumnos === */
+/* ================================================= */
+
+/* --- Variables de Color (Puedes ajustarlas a tu gusto) --- */
+:root {
+    --color-dark-bg: #121212; /* Fondo de la página */
+    --color-main-surface: #1E1E1E; /* Superficies de tarjetas y tablas */
+    --color-border-subtle: #2C2C2C; /* Borde de elementos */
+    --color-text-light: #E0E0E0; /* Texto principal */
+    --color-text-muted: #A0A0A0; /* Texto secundario o de etiqueta */
+    --color-primary-orange: #FF8C00; /* Color principal (botones, iconos) */
+    --color-primary-orange-dark: #CC7000;
+    --color-secondary-blue: #008CBA; /* Color secundario */
+    --color-secondary-blue-dark: #006B95;
+    --color-success: #28a745; /* Verde para éxito (activo) */
+    --color-danger: #dc3545; /* Rojo para peligro (borrar) */
+    --color-warning: #ffc107; /* Amarillo para advertencia */
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.3);
+    --shadow-strong: 0 8px 25px rgba(0, 0, 0, 0.5);
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+}
+
+/* --- Estilos de la Página --- */
+body {
+    background-color: var(--color-dark-bg);
+    color: var(--color-text-light);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+    padding: 10px 0;
+    border-bottom: 2px solid var(--color-border-subtle);
+}
+
+.page-header h1 {
+    font-size: 2.2rem;
+    color: var(--color-primary-orange);
+}
+
+/* --- Estilos de Botones --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--color-primary-orange);
+    color: var(--color-dark-bg);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-orange-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-text-light);
+    border: 2px solid var(--color-border-subtle);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-border-subtle);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.btn-danger {
+    background-color: var(--color-danger);
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 0.9em;
+}
+
+/* --- Estilos de Tabla --- */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Espaciado entre filas */
+}
+
+.table thead th {
+    background-color: var(--color-main-surface);
+    color: var(--color-text-muted);
+    font-size: 0.9em;
+    padding: 15px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.table tbody tr {
+    background-color: var(--color-main-surface);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-light);
+}
+
+.table tbody tr:hover {
+    background-color: #252525;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-strong);
+}
+
+.table td {
+    padding: 15px;
+    border: none;
+}
+
+.table tr:first-child td:first-child { border-top-left-radius: var(--border-radius-sm); }
+.table tr:first-child td:last-child { border-top-right-radius: var(--border-radius-sm); }
+.table tr:last-child td:first-child { border-bottom-left-radius: var(--border-radius-sm); }
+.table tr:last-child td:last-child { border-bottom-right-radius: var(--border-radius-sm); }
+
+
+.status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: var(--color-dark-bg);
+}
+
+.status-activa {
+    background-color: var(--color-success);
+}
+
+.status-inactiva {
+    background-color: var(--color-danger);
+}
+
+/* --- Estilos de Formulario --- */
+.form-card {
+    background-color: var(--color-main-surface);
+    padding: 30px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-strong);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-dark-bg);
+    color: var(--color-text-light);
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary-orange);
+    box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.3);
+}
+
+.required {
+    color: var(--color-primary-orange);
+    font-weight: bold;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* --- Estilos para la imagen de perfil --- */
+.form-group img {
+    border: 2px solid var(--color-border-subtle);
+    padding: 4px;
+    border-radius: var(--border-radius-sm);
+}
+
+/* --- Media Queries (Adaptación a Móviles) --- */
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    .form-card {
+        padding: 20px;
+    }
+}

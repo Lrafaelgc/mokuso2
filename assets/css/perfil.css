@@ -1,0 +1,376 @@
+/* Nuevo contenido para /MOKUSO/assets/css/perfil.css */
+
+/* Variables de Color (Estilo Oscuro Avanzado) */
+:root {
+    --primary-color: #1a237e;    /* Azul Oscuro Profundo (Navy o Indigo) */
+    --secondary-color: #ffb300;  /* Amarillo-Dorado Brillante (Acento) */
+    --text-light: #e8eaf6;       /* Gris claro para texto */
+    --background-dark: #263238;  /* Fondo de tarjeta suave (Blue-Grey) */
+    --card-bg: #1e272c;          /* Fondo de tarjeta principal (casi negro) */
+    --success-color: #43a047;    /* Verde de Asistencia */
+}
+
+body {
+    background-color: var(--primary-color);
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/* Encabezado */
+.text-center h1 {
+    font-weight: 900; /* Más audaz */
+    color: var(--secondary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 25px !important;
+}
+
+/* Tarjeta Principal - Estructura y Sombra */
+.card-container {
+    background: var(--background-dark);
+    color: var(--text-light);
+    border-radius: 16px; /* Bordes más suaves */
+    /* Sombra más dramática y profesional */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 179, 0, 0.2); 
+    display: flex;
+    overflow: hidden;
+}
+
+/* Sección de Perfil (Columna Izquierda) */
+.profile-section {
+    width: 300px;
+    min-width: 300px;
+    background-color: var(--card-bg);
+    padding: 30px 20px; /* Padding ajustado */
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.profile-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid var(--secondary-color);
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(255, 179, 0, 0.7); /* Sombra de acento intensa */
+}
+
+.profile-name {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--text-light);
+    line-height: 1.1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.profile-level {
+    font-size: 0.9rem;
+    color: #bdbdbd; /* Gris tenue */
+    margin-bottom: 3px;
+    font-weight: 400;
+}
+
+.membership-status {
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 25px;
+    font-weight: 700;
+    margin-top: 15px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.membership-status.activa {
+    background-color: var(--success-color); 
+}
+
+.membership-status.inactiva,
+.membership-status.suspendida {
+    background-color: #e53935; /* Rojo profundo */
+}
+
+/* BOTÓN DE ASISTENCIA MEJORADO */
+.btn-check-in {
+    background-color: var(--secondary-color);
+    color: var(--card-bg);
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    /* Sombras para que destaque */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-check-in:hover {
+    background-color: #ffa000; /* Tono más oscuro al pasar el mouse */
+    color: var(--card-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+/* Fin de la mejora del botón */
+
+
+/* Contenido Principal (Columna Derecha) */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+.section-title {
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+/* Tarjetas de Detalles (Peso/Estatura/Tiempo) */
+.content-section .card {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: var(--card-bg) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.content-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
+}
+
+.content-section .card h4 {
+    color: var(--text-light);
+    font-weight: 900;
+    font-size: 1.7rem;
+}
+
+.content-section .card i {
+    color: var(--secondary-color) !important;
+}
+
+.content-section .card p {
+    font-size: 0.9rem;
+}
+
+/* Calendar Styling */
+#calendar-container {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Botones de acción (Descargar / Logout) */
+.btn-outline-warning {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transition: all 0.3s;
+}
+
+.btn-outline-warning:hover {
+    background-color: var(--secondary-color);
+    color: var(--card-bg);
+}
+
+/* Media Query para responsividad (Ajuste para móviles) */
+@media (max-width: 992px) {
+    .card-container {
+        flex-direction: column;
+        /* La sombra se mantiene pero se ajusta */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+    }
+    .profile-section {
+        width: 100%;
+        min-width: unset;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .main-content {
+        padding: 20px; /* Menos padding en móvil */
+    }
+
+    /* Ajuste para los botones de la parte superior */
+    .d-flex.justify-content-between.mb-4.flex-wrap {
+        flex-direction: column;
+    }
+    .d-flex.justify-content-between.mb-4.flex-wrap .btn {
+        width: 100%;
+        margin-bottom: 10px !important;
+    }
+}
+
+/* Sección para el Registro de Asistencias dentro de perfil.css */
+
+/* Contenedor del Calendario */
+#calendar-container {
+    background-color: #2c3e50; /* Un tono de azul oscuro diferente para profundidad */
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 15px;
+    /* Sombra interna para un efecto hundido */
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4); 
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Navegación (Mes y botones) */
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calendar-nav h5 {
+    color: var(--secondary-color); /* Dorado */
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.calendar-nav .btn {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transition: background-color 0.3s;
+}
+
+.calendar-nav .btn:hover {
+    background-color: var(--secondary-color);
+    color: #1e272c;
+}
+
+/* Rejilla del Calendario */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px; /* Espaciado entre días */
+    text-align: center;
+}
+
+/* Encabezados de Días (Lun, Mar, etc.) */
+.calendar-day-header {
+    font-weight: 700;
+    color: #90a4ae; /* Gris azulado para días de la semana */
+    padding: 8px 0;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+/* Celdas de Día */
+.calendar-day {
+    padding: 10px 0;
+    border-radius: 6px; /* Bordes redondeados para las celdas */
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: default;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Días sin Asistencia */
+.calendar-day.not-present {
+    background-color: rgba(255, 255, 255, 0.05); /* Fondo muy sutil */
+    color: var(--text-light);
+}
+
+/* Días con Asistencia (Éxito) */
+.calendar-day.present {
+    background-color: var(--success-color); /* Verde sólido */
+    color: #fff;
+    font-weight: 700;
+    /* Sombra para que el día "salte" */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    position: relative;
+    overflow: hidden;
+}
+
+.calendar-day.present:after {
+    content: '\f00c'; /* Icono de checkmark */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.6em;
+    color: rgba(255, 255, 255, 0.4);
+    opacity: 0.8;
+}
+
+/* Día de Hoy */
+.calendar-day.today {
+    /* Borde dorado que rodea la celda, sea o no asistida */
+    box-shadow: 0 0 0 3px var(--secondary-color) inset;
+    border: 2px solid var(--secondary-color); 
+}
+
+/* Ajuste de responsividad para el calendario en pantallas muy pequeñas */
+@media (max-width: 480px) {
+    #calendar-container {
+        padding: 15px;
+    }
+    .calendar-grid {
+        gap: 4px; /* Menos espacio para que quepan */
+    }
+    .calendar-day {
+        padding: 6px 0;
+        font-size: 0.85rem;
+    }
+    .calendar-day-header {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* Estilos adicionales para el modal de pago */
+
+/* Efecto de transición para un aspecto más suave */
+.payment-option {
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+}
+
+/* Estilos adicionales para el modal de pago */
+
+/* Efecto de transición para un aspecto más suave */
+.payment-option {
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+}
+
+/* Efecto al pasar el mouse */
+.payment-option:hover {
+    background-color: #343a40 !important; /* Un gris un poco más claro que el 'secondary' */
+    transform: translateY(-2px); /* Un pequeño levantamiento */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+}
+
+/* Ajuste fino para la sección de la cuota */
+#paymentModal .bg-warning {
+    /* Mantiene el color amarillo de Bootstrap */
+    color: #212529 !important; /* Asegura que el texto dentro sea oscuro */
+    border: 2px solid #ffc107; /* Borde sutil del mismo color */
+}
+
+/* Estilo para el número grande de la cuenta/CLABE */
+.payment-option .fs-5 {
+    font-family: 'Roboto Mono', monospace; /* Fuente monoespaciada para números */
+    font-size: 1.5rem !important;
+    display: block; /* Asegura que no se desborde */
+    word-break: break-all; 
+}

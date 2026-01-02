@@ -1,0 +1,123 @@
+/* ============================================== */
+/* ====== ESTILOS ESPECÍFICOS PARA AÑADIR LOGRO ====== */
+/* ============================================== */
+
+/* Hereda y reutiliza los estilos de formulario existentes */
+.form-container {
+    background: linear-gradient(135deg, var(--color-surface), #202b20);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-medium);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-grid > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container label {
+    font-size: 0.9em;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-light);
+    font-size: 1em;
+    transition: all 0.2s ease;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(240, 173, 78, 0.2);
+}
+
+.form-note {
+    font-size: 0.9em;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.form-actions {
+    text-align: right;
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--spacing-md);
+}
+
+.form-actions .btn-primary {
+    padding: 12px 25px;
+    font-size: 1.1em;
+}
+
+/* --- Estilos para la funcionalidad de autocompletado --- */
+.autocomplete-container {
+    position: relative;
+    width: 100%;
+}
+
+.autocomplete-list {
+    position: absolute;
+    z-index: 10;
+    top: 100%; 
+    left: 0;
+    right: 0;
+    border: 1px solid var(--color-border);
+    border-top: none;
+    background-color: var(--color-surface);
+    border-bottom-left-radius: var(--radius-sm);
+    border-bottom-right-radius: var(--radius-sm);
+    box-shadow: var(--shadow-medium);
+    max-height: 200px;
+    overflow-y: auto;
+    display: none; 
+}
+
+.autocomplete-item {
+    padding: var(--spacing-sm);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-item:hover {
+    background-color: var(--color-border);
+    color: var(--color-primary);
+}
+
+/* --- Alerta de éxito --- */
+.alert {
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-md);
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.alert-success {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: var(--color-success);
+    border: 1px solid var(--color-success);
+}

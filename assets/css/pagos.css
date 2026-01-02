@@ -1,0 +1,506 @@
+/* ============================================== */
+/* ====== ESTILOS UNIFICADOS DE MOKUSO MANAGER ====== */
+/* ============================================== */
+
+/* --- 1. Variables y Estilos Base --- */
+:root {
+    /* Paleta de Colores */
+    --color-bg: #121212;
+    --color-surface: #1e1e1e;
+    --color-sidebar: #0a0a0a;
+    --color-primary: #ff8c00;
+    --color-primary-dark: #cc7000;
+    --color-secondary: #008cba;
+    --color-text: #e0e0e0;
+    --color-text-muted: #a0a0a0;
+    --color-border: #333333;
+    --color-success: #2ecc71;
+    --color-danger: #e74c3c;
+    --color-warning: #f0ad4e;
+    
+    /* Paleta para la tarjeta de cobro */
+    --color-card-bg: #2b2b2b;
+    --color-card-text: #f5f5f5;
+    --color-card-heading: #ffaa33;
+    
+    /* Sombras */
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.6);
+    
+    /* Espaciado y Radio */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 0.75rem;  /* 12px */
+    --spacing-md: 1.25rem;  /* 20px */
+    --spacing-lg: 1.875rem; /* 30px */
+    --spacing-xl: 2.5rem;   /* 40px */
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 2. Layout Principal --- */
+.app-layout {
+    display: flex;
+    flex-grow: 1;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--color-sidebar);
+    padding: var(--spacing-lg) var(--spacing-md);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.sidebar-header img {
+    height: 35px;
+}
+
+.sidebar-header span {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-decoration: none;
+    color: var(--color-text-muted);
+    border-radius: var(--border-radius-sm);
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    transform: translateX(5px);
+}
+
+.nav-link svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.2;
+}
+
+.main-content-wrapper {
+    flex-grow: 1;
+    padding: var(--spacing-xl);
+    overflow-y: auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- 3. Componentes de la Página (Botones y Formularios) --- */
+.header-with-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-md);
+    gap: 1rem;
+}
+
+.header-with-buttons h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.btn {
+    padding: 10px 15px;
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-border);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
+    color: var(--color-bg);
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.form-container {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-container label {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    color: var(--color-text);
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.2);
+}
+
+.form-actions {
+    text-align: right;
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--spacing-md);
+}
+
+.form-actions .btn-primary {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+}
+
+.form-actions-message {
+    text-align: right;
+    margin-top: var(--spacing-md);
+}
+
+
+/* --- 4. Autocompletado y Tablas --- */
+.autocomplete-container {
+    position: relative;
+}
+
+.autocomplete-list {
+    position: absolute;
+    z-index: 200;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+    box-shadow: var(--shadow-md);
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+.autocomplete-item {
+    padding: var(--spacing-sm);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-item:hover {
+    background-color: var(--color-border);
+    color: var(--color-primary);
+}
+
+.table-container {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+
+table thead tr {
+    background-color: var(--color-sidebar);
+    color: var(--color-primary);
+    text-align: left;
+}
+
+table th, table td {
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+    white-space: nowrap;
+}
+
+table tbody tr:hover {
+    background-color: var(--color-border);
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+/* --- 5. Estilos de la Ventana Modal --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: var(--spacing-md);
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+    display: flex; /* Asegura que el modal se muestre */
+}
+
+.modal-content {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-lg);
+    max-width: 500px;
+    width: 100%;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.close-button-unique {
+    color: var(--color-text-muted);
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-button-unique:hover {
+    color: var(--color-danger);
+}
+
+
+/* --- 6. Tarjeta de Cobro (Recibo Digital) --- */
+.payment-card-unique {
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px dashed var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    font-family: 'Courier New', Courier, monospace; /* Estilo de recibo */
+    color: var(--color-card-text);
+    text-align: center;
+}
+
+.payment-card-unique .card-header-unique {
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.payment-card-unique .card-header-unique h3 {
+    color: var(--color-card-heading);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.monto-display-unique {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--color-success);
+    text-align: center;
+    margin: var(--spacing-md) 0;
+    letter-spacing: 2px;
+}
+
+.payment-info-unique {
+    border-top: 1px dashed var(--color-border);
+    padding-top: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.payment-info-unique h4 {
+    color: var(--color-text);
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-footer-unique {
+    border-top: 1px dashed var(--color-border);
+    padding-top: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+/* --- 7. Adaptabilidad (Responsivo) --- */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 200px;
+        padding: var(--spacing-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .app-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-md) var(--spacing-lg);
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .sidebar-header {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .sidebar-nav {
+        display: none; /* Oculta el menú de navegación en dispositivos móviles */
+    }
+
+    .main-content-wrapper {
+        padding: var(--spacing-md);
+    }
+
+    .header-with-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-md);
+    }
+
+    .action-buttons {
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,395 @@
+/* ============================================================
+   MOKUSO TIMER PRO - CSS MASTER v7.0 (Pro Layout Edition)
+   ============================================================ */
+
+:root {
+    --color-bg: #020617;
+    --color-surface: #0f172a;
+    --color-primary: #7BE351;
+    --color-primary-glow: rgba(123, 227, 81, 0.3);
+    --color-accent: #ef4444;
+    --color-accent-glow: rgba(239, 68, 68, 0.3);
+    --color-text: #f8fafc;
+    --color-text-muted: #94a3b8;
+    --font-ui: 'Inter', sans-serif;
+    --font-display: 'Oswald', sans-serif;
+}
+
+/* ================== RESETEO Y GLOBALES ================== */
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+*, *:before, *:after { box-sizing: inherit; }
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-ui);
+    min-height: 100%; /* Usar min-height en lugar de height */
+    width: 100%;
+    overscroll-behavior: none;
+}
+
+/* ================== ADMIN VIEW ================== */
+.admin-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Cambiado a flex-start */
+    min-height: 100vh;
+    padding: clamp(1rem, 4vh, 3rem); /* Padding vertical responsivo */
+    background: linear-gradient(180deg, #0b1220 0%, #020617 100%);
+}
+
+.admin-container {
+    width: 100%;
+    max-width: 1100px; /* Incrementado para el layout de 2 columnas */
+    background: var(--color-surface);
+    border-radius: 1rem;
+    padding: clamp(1.2rem, 2vw, 2.5rem);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.05); /* Borde sutil */
+}
+
+/* ================== DASHBOARD LINK (NUEVO) ================== */
+.dashboard-link {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+.dashboard-link:hover {
+    color: var(--color-text);
+    opacity: 1;
+}
+
+/* ================== HEADER ================== */
+.admin-header {
+    text-align: center;
+    margin-bottom: 2.5rem; /* Más espacio */
+}
+
+.admin-logo {
+    width: clamp(70px, 10vw, 90px); /* Ligeramente más pequeño */
+    margin-bottom: 0.8rem;
+}
+
+.admin-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    letter-spacing: 1px;
+    color: var(--color-primary);
+    text-shadow: 0 0 15px var(--color-primary-glow);
+}
+
+/* ================== NUEVO LAYOUT DE ADMIN ================== */
+.admin-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Apilado por defecto (móvil) */
+    gap: 2rem; /* Espacio entre columnas */
+    margin-bottom: 2rem;
+}
+
+/* En pantallas de 800px o más, se activa el layout de 2 columnas */
+@media (min-width: 800px) {
+    .admin-layout {
+        grid-template-columns: 2fr 1fr; /* 2/3 para controles, 1/3 para acciones */
+        align-items: flex-start; /* Alinea la parte superior */
+    }
+}
+
+.layout-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espacio entre botones y preview */
+}
+
+/* ================== INPUTS ================== */
+.input-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin-bottom: 0.8rem; /* Más espacio */
+}
+
+.input-field {
+    width: 100%;
+    background: var(--color-bg); /* Fondo más oscuro para "cortar" */
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--color-text);
+    border-radius: 0.5rem;
+    padding: 0.8rem 1rem; /* Más padding */
+    font-size: 1rem;
+    font-family: var(--font-ui);
+    transition: all 0.3s;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px var(--color-primary-glow); /* Efecto glow al enfocar */
+}
+
+/* ================== BOTONES ================== */
+.btn {
+    border: none;
+    border-radius: 0.6rem;
+    font-weight: 700; /* Más grueso */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-ui);
+    padding: 0.8rem 1.2rem; /* Padding base */
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: #000;
+}
+.btn-primary:hover { 
+    box-shadow: 0 0 20px var(--color-primary-glow);
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background: var(--color-accent);
+    color: #fff;
+}
+.btn-danger:hover { 
+    box-shadow: 0 0 20px var(--color-accent-glow);
+    transform: translateY(-2px);
+}
+
+.btn-accent {
+    background: linear-gradient(90deg, var(--color-primary), #b8f29e);
+    color: #000;
+    box-shadow: 0 0 20px var(--color-primary-glow); /* Glow por defecto */
+}
+.btn-accent:hover {
+    transform: scale(1.02); /* Efecto hover más sutil */
+}
+
+.btn-preset {
+    background: rgba(255,255,255,0.08);
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.5rem 0.9rem;
+}
+.btn-preset:hover {
+    background: rgba(255,255,255,0.15);
+    color: var(--color-primary);
+}
+
+/* ESTILO PARA EL BOTÓN DE PANTALLA GIGANTE */
+.btn-open-display {
+    background: transparent;
+    border: 2px solid var(--color-primary-glow);
+    color: var(--color-primary);
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.btn-open-display:hover {
+    background: var(--color-primary-glow);
+    color: var(--color-text);
+    box-shadow: 0 0 20px var(--color-primary-glow);
+}
+
+/* ================== PREVIEW ================== */
+.preview-card {
+    background: rgba(0,0,0,0.2); /* Más oscuro */
+    border-radius: 0.8rem;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.05); /* Borde sutil */
+}
+
+.preview-timer {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem); /* Ajustado */
+    margin: 0.6rem 0;
+    line-height: 1;
+}
+
+.preview-phase {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 700;
+    text-transform: uppercase; /* Consistente */
+}
+
+.preview-reps {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+/* ===================================================
+   DISPLAY VIEW (Pantalla Gigante) - Sin cambios
+   =================================================== */
+.display-view {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.display-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
+    background: rgba(15,23,42,0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.05); /* Borde sutil */
+}
+
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand-logo {
+    width: clamp(40px, 5vw, 70px); /* Ajustado */
+    filter: drop-shadow(0 0 15px rgba(123,227,81,0.4));
+}
+
+.brand-name {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 3vw, 2rem);
+    color: var(--color-primary);
+    letter-spacing: 2px;
+}
+
+.clock-time {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 4vw, 2.2rem);
+    color: var(--color-primary);
+}
+
+.clock-date {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    color: var(--color-text-muted);
+    text-align: right;
+}
+
+/* ================== MAIN DISPLAY ================== */
+.display-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+.watermark {
+    position: absolute;
+    opacity: 0.05;
+    width: 50%;
+    max-width: 600px;
+}
+
+.phase-label {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 6vw, 4rem);
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    text-transform: uppercase; /* Consistente */
+}
+
+.timer-digits {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 18vw, 14rem);
+    font-weight: 800;
+    text-shadow: 0 0 30px rgba(123,227,81,0.2);
+    line-height: 1;
+}
+
+.reps-container {
+    margin-top: 2rem;
+}
+
+.reps-label {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: var(--color-text-muted);
+}
+
+.reps-value {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 8vw, 5rem);
+    color: var(--color-primary);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(2,6,23,0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    transition: opacity 0.5s;
+}
+.overlay.hidden { opacity: 0; pointer-events: none; }
+
+/* ================== EFECTOS DE ESTADO ================== */
+.phase-rest { color: var(--color-accent); }
+.phase-rest .timer-digits { color: var(--color-accent); }
+
+.phase-workout { color: var(--color-primary); }
+.phase-workout .timer-digits { color: var(--color-primary); }
+
+.critical { animation: pulseCritical 1s infinite alternate; }
+
+/* ANIMACIÓN DE PULSO PARA BOTÓN INICIAR */
+.animate-pulse {
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes pulseCritical {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.6; transform: scale(1.05); }
+}
+
+/* ================== RESPONSIVE (SIMPLIFICADO) ================== */
+@media (max-width: 799px) { /* Móvil y tablet vertical */
+    .admin-container {
+        padding: 1rem;
+        max-width: 95%;
+    }
+    .grid {
+        grid-template-columns: 1fr !important; /* Forzar 1 columna */
+    }
+    .admin-title { font-size: 1.4rem; }
+    .btn { padding: 0.8rem 1rem; }
+    .timer-digits { font-size: clamp(3rem, 25vw, 8rem); }
+    .brand-name { display: none; }
+    .brand-logo { width: 50px; }
+    .display-header { padding: 0.5rem 1rem; }
+    .dashboard-link { display: none; } /* Ocultar en móvil */
+}

@@ -1,0 +1,294 @@
+/* =================================================== */
+/* CSS para el Modal de Tarjeta de Perfil de Alumno */
+/* =================================================== */
+
+:root {
+    --card-bg: #2a3042;         /* Fondo principal de la tarjeta (Azul oscuro/gris) */
+    --primary-color: #6a1b9a;   /* Morado de acento (Si lo tienes) */
+    --accent-color: #ff9800;    /* Naranja/Amarillo de acento (como en la imagen) */
+    --text-color: #e0e0e0;      /* Color de texto principal */
+    --border-color: #3b435a;    /* Color de borde o separador */
+    --inactive-bg: #e53935;     /* Rojo para inactivo */
+}
+
+/* Base del Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Fondo muy oscuro */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-content {
+    background: transparent; /* El fondo lo pone la tarjeta interna */
+    padding: 0;
+    border-radius: 15px;
+    max-width: 450px; /* Tamaño ideal para la tarjeta */
+    width: 95%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.close-modal:hover {
+    opacity: 1;
+}
+
+/* --- ESTILOS DE LA TARJETA CREATIVA (.creative-card) --- */
+
+.creative-card {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.card-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.5;
+}
+
+/* Banner de Estado Inactivo */
+.card-status-banner {
+    position: absolute;
+    top: 15px;
+    left: -20px;
+    background-color: var(--inactive-bg);
+    color: white;
+    padding: 3px 25px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Sección Superior (Foto, Nombre, Nivel) */
+.card-top {
+    text-align: center;
+    padding: 30px 20px 20px;
+    background-color: #202336; /* Fondo más oscuro para el top */
+}
+
+.profile-img-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.card-top h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 5px 0 0;
+}
+
+.card-top .level {
+    font-size: 0.9rem;
+    color: #bdbdbd;
+    margin-bottom: 0;
+}
+
+/* Contenido Principal (Métricas y Logros) */
+.card-body-content {
+    padding: 20px 25px;
+}
+
+/* Grid de Métricas (Edad, Peso, etc.) */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px 10px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-item .icon {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.stat-item span {
+    font-size: 0.75rem;
+    color: #99a0b7;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.stat-item p {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 2px 0 0;
+}
+
+/* Sección de Fechas (Registro y Membresía) */
+.date-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 25px;
+}
+
+.date-item {
+    text-align: center;
+    flex-basis: 50%;
+}
+
+.date-item span {
+    display: block;
+    font-size: 0.75rem;
+    color: #99a0b7;
+    margin-top: 5px;
+}
+
+.date-item p {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 2px 0 0;
+}
+
+.date-item .icon {
+    color: var(--accent-color);
+}
+
+/* Sección de Logros (Toggle/Expandible) */
+.card-logros {
+    background-color: #3b435a; /* Fondo más claro para la sección */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    border: 1px solid var(--accent-color);
+}
+
+.logros-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.logros-header .toggle-icon {
+    transition: transform 0.3s;
+}
+
+.logros-content {
+    padding-top: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.logros-content.hidden {
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0;
+}
+
+.logros-content p {
+    color: #99a0b7;
+    font-style: italic;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+/* Estilos para la lista de logros */
+.logros-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.logros-content li {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 8px 10px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    border-left: 3px solid var(--accent-color);
+    font-size: 0.95rem;
+}
+
+/* Sección de Acciones (Botones) */
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-actions a {
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-history {
+    background-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.btn-add-logro {
+    background-color: var(--accent-color);
+    color: #202336;
+}
+
+.btn-payment {
+    background-color: #4caf50; /* Verde de pago */
+    color: #fff;
+}
+
+.card-actions a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
